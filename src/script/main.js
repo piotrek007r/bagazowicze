@@ -61,9 +61,9 @@ const opinionBox = document.querySelectorAll(".opinions__box");
 let position = 0;
 
 function goToSlide() {
-  console.log(position);
   opinionBox.forEach((el, i) => {
-    el.style.transform = `translateX(${(position - i) * 100}%)`;
+    console.log(position, i);
+    el.style.transform = `translateX(${(position + i) * 100}%)`;
   });
 }
 
@@ -72,12 +72,16 @@ opinionsContainer.addEventListener("click", function (e) {
   if (!btnCliked) return;
 
   if (btnCliked.classList.contains("opinions__btn-right")) {
-    if (position < 1) position = 3;
+    if (position < -1) position = 1;
     position--;
     goToSlide();
   } else {
-    if (position > 1) position = -1;
+    console.log("left");
+    if (position > -1) {
+      position = -3;
+    }
     position++;
+
     goToSlide();
   }
 });
