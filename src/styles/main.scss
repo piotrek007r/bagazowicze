@@ -136,81 +136,71 @@ html {
 // ---------------> ABOUT US
 
 .hero__image {
-  margin-top: 100px;
   width: 100%;
   height: 550px;
-  // background-color: red;
+  margin-top: 100px;
   background-image: url(../../assets/img/van3.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
+  position: relative;
+
+  .text-container {
+    width: 600px;
+    height: 300px;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    z-index: 2;
+    color: $color-primary-main;
+
+    .about-us__text--bold {
+      font-size: 34px;
+      font-weight: 700;
+      white-space: nowrap;
+      margin-bottom: 20px;
+
+      @media (max-width: $media-tablet) {
+        font-size: 30px;
+      }
+
+      @media (max-width: $media-mobile) {
+        font-size: 28px;
+      }
+    }
+
+    .about-us__text--normal {
+      font-size: 18px;
+
+      @media (max-width: $media-tablet) {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: $media-tablet) {
+      width: 500px;
+      top: 50px;
+    }
+    @media (max-width: $media-mobile) {
+      width: 80%;
+      top: 360px;
+      left: 20px;
+      color: black;
+    }
+  }
 
   @media (max-width: $media-tablet) {
+    margin-top: 80px;
+    height: 400px;
+  }
+
+  @media (max-width: $media-mobile) {
+    height: 350px !important;
+    margin-bottom: 300px;
     height: 400px;
   }
 }
 
-// .about-us {
-//   width: 100%;
-//   height: auto;
-//   display: flex;
-//   justify-content: center;
-//   margin-top: 100px;
-//   margin-bottom: $section-separator;
-//   background-color: $color-secondary-main;
-//   padding: 20px 0;
-
-//   @media (max-width: $media-tablet) {
-//     justify-content: flex-start;
-//   }
-//   @media (max-width: $media-mobile) {
-//     flex-direction: column-reverse;
-//   }
-
-//   .text-container {
-//     width: 30%;
-
-//     @media (max-width: $media-mobile) {
-//       width: 90%;
-//       margin: auto;
-//     }
-
-//     .about-us__text--bold {
-//       font-size: 28px;
-//       font-weight: 700;
-//       white-space: nowrap;
-//       margin-bottom: 20px;
-//     }
-//   }
-
-//   .about-us__image--parent {
-//     min-width: 550px;
-//     height: 350px;
-//     // transform: skewX(-40deg) translateX(140px);
-//     // overflow: hidden;
-
-//     @media (max-width: $media-mobile) {
-//       min-width: 100%;
-//       // transform: skewX(0deg) translateX(0px);
-//     }
-//   }
-
-//   .about-us__image--child {
-//     width: 100%;
-//     height: 100%;
-//     background-image: url(../../assets/img/van.jpg);
-//     background-size: contain;
-//     background-repeat: no-repeat;
-//     background-position: right;
-//     // transform: skewX(40deg) scalex(-1.4) scaleY(1.2);
-
-//     @media (max-width: $media-mobile) {
-//       width: 100%;
-//       // transform: skewX(0deg) scalex(-1) scaleY(0.8);
-//       background-position: center;
-//     }
-//   }
-// }
 
 // -------------------------------------------------------------
 // ---------------> OFFER
@@ -224,7 +214,7 @@ html {
   position: relative;
 
   @media (max-width: $media-mobile) {
-    height: 150px;
+    height: 180px;
   }
 }
 
