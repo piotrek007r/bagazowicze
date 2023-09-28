@@ -166,7 +166,8 @@ html {
 }
 @media (max-width: 845px) {
   .hero__image .text-container .about-us__text--bold {
-    font-size: 28px;
+    margin-bottom: 10px;
+    font-size: 24px;
   }
 }
 .hero__image .text-container .about-us__text--normal {
@@ -200,7 +201,8 @@ html {
 @media (max-width: 845px) {
   .hero__image {
     height: 350px !important;
-    margin-bottom: 300px;
+    margin-bottom: 320px;
+    margin-top: 0;
     height: 400px;
   }
 }
@@ -215,7 +217,7 @@ html {
 }
 @media (max-width: 845px) {
   .offer__nav-bar {
-    height: 180px;
+    height: 220px;
   }
 }
 
@@ -241,7 +243,7 @@ html {
     display: flex;
     flex-wrap: wrap;
     height: auto;
-    gap: 20px;
+    gap: 10px;
   }
 }
 .offer__nav-list .offer__nav-item {
@@ -290,7 +292,7 @@ html {
 .offer-container {
   width: 90%;
   height: auto;
-  margin: 2rem auto;
+  margin: auto;
   display: flex;
   background-color: hsl(0, 0%, 93%);
   padding: 20px 0;
@@ -303,6 +305,12 @@ html {
   .offer-container .offer-container__image {
     align-self: center;
     width: 500px;
+  }
+}
+@media (max-width: 845px) {
+  .offer-container .offer-container__image {
+    width: 100vw;
+    max-width: 500px;
   }
 }
 .offer-container .offer-container__text {
@@ -419,7 +427,7 @@ html {
   right: calc(25% - 180px);
 }
 
-.experience__section {
+.testymonials__section {
   height: 500px;
   background-color: hsl(0, 0%, 93%);
   display: grid;
@@ -427,7 +435,7 @@ html {
   grid-template-rows: 1fr 1fr;
   padding: 20px 200px;
 }
-.experience__section .testimonial__box {
+.testymonials__section .testimonial__box {
   width: 150px;
   height: fit-content;
   background-color: white;
@@ -435,16 +443,16 @@ html {
   justify-self: center;
   align-self: center;
 }
-.experience__section .testimonial__box img {
+.testymonials__section .testimonial__box img {
   width: 100%;
 }
 @media (max-width: 1110px) {
-  .experience__section {
+  .testymonials__section {
     padding: 20px 100px;
   }
 }
 @media (max-width: 845px) {
-  .experience__section {
+  .testymonials__section {
     height: fit-content;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(5, 1fr);
@@ -452,6 +460,16 @@ html {
     align-content: center;
     padding: 20px 100px;
   }
+}
+
+.big-picture {
+  width: 30vw !important;
+  position: fixed;
+  transition: all 1s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
 }
 
 .backdrop-filter {
@@ -469,7 +487,7 @@ html {
   width: 70%;
   height: 100vh;
   background-color: white;
-  opacity: 0.9;
+  opacity: 0.95;
   position: fixed;
   right: -100%;
   top: 0;

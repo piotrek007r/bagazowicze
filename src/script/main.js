@@ -4,11 +4,16 @@
 // Loading page
 
 //-----------------------------------------------------------
+// Global variables
+
+const backdropFilter = document.querySelector(".backdrop-filter");
+
+//-----------------------------------------------------------
 // Hamburger actions
 
 const hamburgerIcon = document.querySelector(".hamburger-menu__icon");
 const mobileSideBar = document.querySelector(".mobile-navigation-bar");
-const backdropFilter = document.querySelector(".backdrop-filter");
+const navBar = document.querySelector(".navigation-bar");
 
 document.addEventListener("click", function (e) {
   // Display hamburger menu
@@ -23,7 +28,7 @@ document.addEventListener("click", function (e) {
     e.target.closest(".mobile-nav__btn--close")
   ) {
     backdropFilter.style.display = "none";
-    mobileSideBar.classList.toggle("is-active");
+    mobileSideBar.classList.remove("is-active");
   }
 });
 
@@ -62,7 +67,6 @@ let position = 0;
 
 function goToSlide() {
   opinionBox.forEach((el, i) => {
-    console.log(position, i);
     el.style.transform = `translateX(${(position + i) * 100}%)`;
   });
 }
@@ -84,4 +88,23 @@ opinionsContainer.addEventListener("click", function (e) {
 
     goToSlide();
   }
+});
+
+//-----------------------------------------------------------
+// Testimonials
+
+const testymonialsContainer = document.querySelector(".testymonials__section");
+const testymonialBox = document.querySelectorAll(".testimonial__box");
+
+testymonialsContainer.addEventListener("click", function (e) {
+  const clickeBox = e.target.closest(".testimonial__box").dataset.tab;
+  console.log(clickeBox);
+  if (!clickeBox) return;
+  testymonialBox.forEach((el) => {
+    if (el.dataset.tab === clickeBox) {
+      // el.style.width = "30vw";
+      el.classList.add("big-picture");
+      backdropFilter.style.display = "block";
+    }
+  });
 });
