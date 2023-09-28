@@ -96,15 +96,17 @@ opinionsContainer.addEventListener("click", function (e) {
 const testymonialsContainer = document.querySelector(".testymonials__section");
 const testymonialBox = document.querySelectorAll(".testimonial__box");
 
-testymonialsContainer.addEventListener("click", function (e) {
-  const clickeBox = e.target.closest(".testimonial__box").dataset.tab;
-  console.log(clickeBox);
-  if (!clickeBox) return;
+document.addEventListener("click", function (e) {
+  const clickeBox = e.target.closest(".testimonial__box");
   testymonialBox.forEach((el) => {
-    if (el.dataset.tab === clickeBox) {
-      // el.style.width = "30vw";
+    if (!clickeBox) return;
+    if (el.dataset.tab === clickeBox.dataset.tab) {
       el.classList.add("big-picture");
       backdropFilter.style.display = "block";
     }
   });
+  if (e.target.closest(".backdrop-filter")) {
+    backdropFilter.style.display = "none";
+    testymonialBox.forEach((el) => el.classList.remove("big-picture"));
+  }
 });
