@@ -7,6 +7,17 @@
 // Global variables
 
 const backdropFilter = document.querySelector(".backdrop-filter");
+let newDiv;
+
+//-----------------------------------------------------------
+// Helper functions
+
+function setBackdrop() {
+  backdropFilter.style.display = "none";
+  mobileSideBar.classList.remove("is-active");
+  if (!newDiv) return;
+  newDiv.remove();
+}
 
 //-----------------------------------------------------------
 // Hamburger actions
@@ -28,10 +39,8 @@ document.addEventListener("click", function (e) {
   if (
     e.target.closest(".backdrop-filter") ||
     e.target.closest(".mobile-nav__btn--close")
-  ) {
-    backdropFilter.style.display = "none";
-    mobileSideBar.classList.remove("is-active");
-  }
+  )
+    setBackdrop();
 });
 
 //-----------------------------------------------------------
@@ -124,10 +133,11 @@ opinionsContainer.addEventListener("touchend", function (e) {
 const testymonialsContainer = document.querySelector(".testymonials__section");
 const testymonialBox = document.querySelectorAll(".testimonial__box");
 
-let newDiv;
-
 document.addEventListener("click", function (e) {
   const clickedBox = e.target.closest(".testimonial__box");
+  // console.log(clickedBox.classList.contains("big-picture"));
+  if (!clickedBox) return;
+  if (clickedBox.classList.contains("big-picture")) return;
   if (e.target.closest(".testimonial__box")) {
     // Creating div containing img
     newDiv = document.createElement("div");
@@ -142,11 +152,6 @@ document.addEventListener("click", function (e) {
 
     // Set a backdrop filter
     backdropFilter.style.display = "block";
-  }
-  if (e.target.closest(".backdrop-filter")) {
-    backdropFilter.style.display = "none";
-    newDiv.remove();
-    // testymonialBox.forEach((el) => el.classList.remove("big-picture"));
   }
 });
 
