@@ -16,6 +16,8 @@ const mobileSideBar = document.querySelector(".mobile-navigation-bar");
 const navBar = document.querySelector(".navigation-bar");
 
 document.addEventListener("click", function (e) {
+  e.preventDefault(e);
+
   // Display hamburger menu
   if (e.target.closest(".hamburger-menu__icon")) {
     mobileSideBar.classList.toggle("is-active");
@@ -48,7 +50,6 @@ document.addEventListener("click", function (e) {
   e.preventDefault();
   const dataTab = e.target.getAttribute("data-tab");
   if (!dataTab) return;
-  console.log(e.target);
   offerContainers.forEach((container) => {
     container.classList.add("hidden");
 
@@ -61,7 +62,7 @@ document.addEventListener("click", function (e) {
 //-----------------------------------------------------------
 // Slider
 
-const opinionsContainer = document.querySelector(".opinions__section");
+const opinionsSection = document.querySelector(".opinions__section");
 const opinionBox = document.querySelectorAll(".opinions__box");
 let position = 0;
 
@@ -71,23 +72,55 @@ function goToSlide() {
   });
 }
 
-opinionsContainer.addEventListener("click", function (e) {
+function slideRight() {
+  if (position < -1) position = 1;
+  position--;
+  goToSlide();
+}
+
+function slideLeft() {
+  if (position > -1) {
+    position = -3;
+  }
+  position++;
+  goToSlide();
+}
+
+opinionsSection.addEventListener("click", function (e) {
+  e.preventDefault(e);
   const btnCliked = e.target.closest(".opinions__btn");
   if (!btnCliked) return;
 
   if (btnCliked.classList.contains("opinions__btn-right")) {
-    if (position < -1) position = 1;
-    position--;
-    goToSlide();
+    slideRight();
   } else {
-    console.log("left");
-    if (position > -1) {
-      position = -3;
-    }
-    position++;
-
-    goToSlide();
+    slideLeft();
   }
+});
+
+// touch slide
+
+const opinionsContainer = document.querySelector(".opinions__container");
+
+let touchstart = 0;
+let touchend = 0;
+
+opinionsContainer.addEventListener("touchstart", function (e) {
+  touchstart = e.changedTouches[0].clientX;
+  // this.style.cursor = "grabbing";
+});
+
+opinionsContainer.addEventListener("touchend", function (e) {
+  touchend = e.changedTouches[0].clientX;
+  console.log(touchstart, touchend);
+
+  if (touchstart < touchend) {
+    slideRight();
+  } else {
+    slideLeft();
+  }
+
+  // this.style.cursor = "grabbing";
 });
 
 //-----------------------------------------------------------

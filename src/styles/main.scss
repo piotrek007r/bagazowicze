@@ -362,6 +362,7 @@ html {
     border-radius: 10px;
     border: 3px solid $color-priomary-effects;
     overflow: hidden;
+    // user-select: none;
 
     @media (max-width: $media-mobile) {
       max-width: 600px;
@@ -371,6 +372,7 @@ html {
     .opinions__box {
       position: absolute;
       transition: all 0.5s;
+      // user-select: none;
 
       .opinions__image--standard {
         margin-right: 20px;
