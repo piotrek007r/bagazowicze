@@ -107,20 +107,15 @@ let touchend = 0;
 
 opinionsContainer.addEventListener("touchstart", function (e) {
   touchstart = e.changedTouches[0].clientX;
-  // this.style.cursor = "grabbing";
 });
 
 opinionsContainer.addEventListener("touchend", function (e) {
   touchend = e.changedTouches[0].clientX;
-  console.log(touchstart, touchend);
-
-  if (touchstart < touchend) {
+  if (touchstart > touchend) {
     slideRight();
   } else {
     slideLeft();
   }
-
-  // this.style.cursor = "grabbing";
 });
 
 //-----------------------------------------------------------
@@ -129,17 +124,43 @@ opinionsContainer.addEventListener("touchend", function (e) {
 const testymonialsContainer = document.querySelector(".testymonials__section");
 const testymonialBox = document.querySelectorAll(".testimonial__box");
 
+let newDiv;
+
 document.addEventListener("click", function (e) {
-  const clickeBox = e.target.closest(".testimonial__box");
-  testymonialBox.forEach((el) => {
-    if (!clickeBox) return;
-    if (el.dataset.tab === clickeBox.dataset.tab) {
-      el.classList.add("big-picture");
-      backdropFilter.style.display = "block";
-    }
-  });
+  const clickedBox = e.target.closest(".testimonial__box");
+  if (e.target.closest(".testimonial__box")) {
+    // Creating div containing img
+    newDiv = document.createElement("div");
+    testymonialsContainer.appendChild(newDiv);
+    newDiv.classList.add("testimonial__box", "big-picture");
+
+    // Creating img inside freshly created div
+    const newImg = document.createElement("img");
+    newDiv.appendChild(newImg);
+    const dateSet = clickedBox.dataset.tab;
+    newImg.src = `/assets/img/polecaja${dateSet}max-opt.jpg`;
+
+    // Set a backdrop filter
+    backdropFilter.style.display = "block";
+  }
   if (e.target.closest(".backdrop-filter")) {
     backdropFilter.style.display = "none";
-    testymonialBox.forEach((el) => el.classList.remove("big-picture"));
+    newDiv.remove();
+    // testymonialBox.forEach((el) => el.classList.remove("big-picture"));
   }
 });
+
+// document.addEventListener("click", function (e) {
+//   const clickeBox = e.target.closest(".testimonial__box");
+//   testymonialBox.forEach((el) => {
+//     if (!clickeBox) return;
+//     if (el.dataset.tab === clickeBox.dataset.tab) {
+//       el.classList.add("big-picture");
+//       backdropFilter.style.display = "block";
+//     }
+//   });
+//   if (e.target.closest(".backdrop-filter")) {
+//     backdropFilter.style.display = "none";
+//     testymonialBox.forEach((el) => el.classList.remove("big-picture"));
+//   }
+// });
