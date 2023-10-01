@@ -84,7 +84,6 @@ offerContainers.forEach((container, index) => {
 
 // Handling tab-offer buttons
 document.addEventListener("click", function (e) {
-  console.log("offer tab");
   e.preventDefault();
   const dataTab = e.target.getAttribute("data-tab");
   if (!dataTab) return;
@@ -111,12 +110,15 @@ function goToSlide() {
 }
 
 function slideRight() {
+  console.log("right");
   if (position < -1) position = 1;
   position--;
   goToSlide();
 }
 
 function slideLeft() {
+  console.log("left");
+
   if (position > -1) {
     position = -3;
   }
@@ -125,7 +127,7 @@ function slideLeft() {
 }
 
 opinionsSection.addEventListener("click", function (e) {
-  e.preventDefault(e);
+  // e.preventDefault(e);
   const btnCliked = e.target.closest(".opinions__btn");
   if (!btnCliked) return;
 
@@ -138,7 +140,7 @@ opinionsSection.addEventListener("click", function (e) {
 
 // touch slide
 
-const opinionsContainer = document.querySelector(".opinions__container");
+const opinionsContainer = document.querySelector(".opinions__container-child");
 
 let touchstart = 0;
 let touchend = 0;
