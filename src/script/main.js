@@ -84,6 +84,7 @@ offerContainers.forEach((container, index) => {
 
 // Handling tab-offer buttons
 document.addEventListener("click", function (e) {
+  console.log("offer tab");
   e.preventDefault();
   const dataTab = e.target.getAttribute("data-tab");
   if (!dataTab) return;
