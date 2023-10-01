@@ -343,11 +343,11 @@ html {
 
 .section-title {
   text-align: center;
-  margin: 40px !important;
+  padding: 40px !important;
   text-transform: uppercase;
 }
 
-.opinions__section {
+.opinions__container {
   width: 80%;
   height: 500px;
   background-color: hsl(0, 0%, 93%);
@@ -358,11 +358,11 @@ html {
   position: relative;
 }
 @media (max-width: 1110px) {
-  .opinions__section {
+  .opinions__container {
     width: 100%;
   }
 }
-.opinions__section .opinions__container {
+.opinions__container .opinions__container-child {
   width: 643px;
   height: 300px;
   background-color: white;
@@ -373,34 +373,34 @@ html {
   overflow: hidden;
 }
 @media (max-width: 845px) {
-  .opinions__section .opinions__container {
+  .opinions__container .opinions__container-child {
     max-width: 600px;
     margin: 0 10px;
   }
 }
-.opinions__section .opinions__container .opinions__box {
+.opinions__container .opinions__container-child .opinions__box {
   position: absolute;
   transition: all 0.5s;
 }
-.opinions__section .opinions__container .opinions__box .opinions__image--standard {
+.opinions__container .opinions__container-child .opinions__box .opinions__image--standard {
   margin-right: 20px;
 }
 @media (max-width: 845px) {
-  .opinions__section .opinions__container .opinions__box .opinions__image--standard {
+  .opinions__container .opinions__container-child .opinions__box .opinions__image--standard {
     display: none;
   }
 }
-.opinions__section .opinions__container .opinions__box .opinions__image--mobile {
+.opinions__container .opinions__container-child .opinions__box .opinions__image--mobile {
   display: none;
 }
 @media (max-width: 845px) {
-  .opinions__section .opinions__container .opinions__box .opinions__image--mobile {
+  .opinions__container .opinions__container-child .opinions__box .opinions__image--mobile {
     margin-right: 400px !important;
     display: block;
     margin: auto;
   }
 }
-.opinions__section .opinions__btn {
+.opinions__container .opinions__btn {
   width: 70px;
   height: 70px;
   border: 3px solid rgb(255, 166, 0);
@@ -414,28 +414,28 @@ html {
   cursor: pointer;
 }
 @media (max-width: 845px) {
-  .opinions__section .opinions__btn {
+  .opinions__container .opinions__btn {
     border: none;
   }
 }
-.opinions__section .opinions__btn span {
+.opinions__container .opinions__btn span {
   display: block;
   padding-bottom: 5px;
 }
-.opinions__section .opinions__btn-left {
+.opinions__container .opinions__btn-left {
   left: calc(25% - 180px);
 }
 @media (max-width: 845px) {
-  .opinions__section .opinions__btn-left {
+  .opinions__container .opinions__btn-left {
     left: 20vw;
     bottom: 17px;
   }
 }
-.opinions__section .opinions__btn-right {
+.opinions__container .opinions__btn-right {
   right: calc(25% - 180px);
 }
 @media (max-width: 845px) {
-  .opinions__section .opinions__btn-right {
+  .opinions__container .opinions__btn-right {
     right: 20vw;
     top: 17px;
   }
@@ -573,6 +573,15 @@ html {
   width: 100%;
   height: 3px;
   background-color: rgb(255, 166, 0);
+}
+
+.test {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: red;
 }
 
 /*# sourceMappingURL=main.css.map */

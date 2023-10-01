@@ -12,7 +12,7 @@ let newDiv;
 //-----------------------------------------------------------
 // Helper functions
 
-function setBackdrop() {
+function removeBackdrop() {
   backdropFilter.style.display = "none";
   mobileSideBar.classList.remove("is-active");
   if (!newDiv) return;
@@ -20,11 +20,39 @@ function setBackdrop() {
 }
 
 //-----------------------------------------------------------
-// Hamburger actions
+// Navigation bar actions
 
+const navBar = document.querySelector(".navigation-bar");
+const sections = document.querySelectorAll("section");
+const topgGap = navBar.getBoundingClientRect().height;
 const hamburgerIcon = document.querySelector(".hamburger-menu__icon");
 const mobileSideBar = document.querySelector(".mobile-navigation-bar");
-const navBar = document.querySelector(".navigation-bar");
+
+function scrollToPosition(e) {
+  const clickedBtn = e.target.closest(".nav__item");
+  sections.forEach((section) => {
+    if (!clickedBtn) return;
+    if (section.dataset.tab === clickedBtn.dataset.tab) {
+      const coords = section.getBoundingClientRect();
+      window.scrollTo({
+        left: coords.left + window.pageXOffset,
+        top: coords.top + window.pageYOffset - topgGap,
+        behavior: "smooth",
+      });
+    }
+  });
+}
+
+navBar.addEventListener("click", function (e) {
+  scrollToPosition(e);
+});
+
+// Hamburger menu
+
+mobileSideBar.addEventListener("click", function (e) {
+  scrollToPosition(e);
+  removeBackdrop();
+});
 
 document.addEventListener("click", function (e) {
   e.preventDefault(e);
@@ -40,7 +68,7 @@ document.addEventListener("click", function (e) {
     e.target.closest(".backdrop-filter") ||
     e.target.closest(".mobile-nav__btn--close")
   )
-    setBackdrop();
+    removeBackdrop();
 });
 
 //-----------------------------------------------------------
@@ -71,7 +99,7 @@ document.addEventListener("click", function (e) {
 //-----------------------------------------------------------
 // Slider
 
-const opinionsSection = document.querySelector(".opinions__section");
+const opinionsSection = document.querySelector(".opinions__container");
 const opinionBox = document.querySelectorAll(".opinions__box");
 let position = 0;
 
@@ -118,6 +146,10 @@ opinionsContainer.addEventListener("touchstart", function (e) {
   touchstart = e.changedTouches[0].clientX;
 });
 
+// opinionsContainer.addEventListener("touchmove", function (e) {
+//   console.log(e.changedTouches[0].clientX);
+// });
+
 opinionsContainer.addEventListener("touchend", function (e) {
   touchend = e.changedTouches[0].clientX;
   if (touchstart > touchend) {
@@ -138,7 +170,7 @@ document.addEventListener("click", function (e) {
   // console.log(clickedBox.classList.contains("big-picture"));
   if (!clickedBox) return;
   if (clickedBox.classList.contains("big-picture")) return;
-  if (e.target.closest(".testimonial__box")) {
+  if (clickedBox) {
     // Creating div containing img
     newDiv = document.createElement("div");
     testymonialsContainer.appendChild(newDiv);

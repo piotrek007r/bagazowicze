@@ -335,11 +335,12 @@ html {
 
 .section-title {
   text-align: center;
-  margin: 40px !important;
+  padding: 40px !important;
   text-transform: uppercase;
+  // border: 2px solid black;
 }
 
-.opinions__section {
+.opinions__container {
   width: 80%;
   height: 500px;
   background-color: $color-secondary-main;
@@ -353,7 +354,7 @@ html {
     width: 100%;
   }
 
-  .opinions__container {
+  .opinions__container-child {
     width: 643px;
     height: 300px;
     background-color: white;
@@ -581,11 +582,11 @@ html {
   background-color: $color-priomary-effects;
 }
 
-// .test {
-//   width: 100px;
-//   height: 100px;
-//   position: fixed;
-//   top: 50%;
-//   left: 50%;
-//   background-color: red;
-// }
+.test {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: red;
+}

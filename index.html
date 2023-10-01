@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,25 +16,25 @@
       <nav class="navigation-bar">
         <div class="logo__image"></div>
         <ul class="nav__list">
-          <li class="nav__item">
+          <li class="nav__item" data-tab="1">
             <a href="">O nas</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" data-tab="2">
             <a href="">Oferta</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" data-tab="3">
             <a href="">Opinie</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" data-tab="4">
             <a href="">Doświadczenie</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" data-tab="5">
             <a href="">Cennik</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" data-tab="6">
             <a href="">Galeria</a>
           </li>
-          <li class="nav__item">
+          <li class="nav__item" data-tab="7">
             <a href="">kontakt</a>
           </li>
         </ul>
@@ -47,25 +47,25 @@
     </header>
     <nav class="mobile-navigation-bar">
       <ul class="mobile-nav__list">
-        <li class="nav__item">
+        <li class="nav__item" data-tab="1">
           <a href="">O nas</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-tab="2">
           <a href="">Oferta</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-tab="3">
           <a href="">Opinie</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-tab="4">
           <a href="">Doświadczenie</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-tab="5">
           <a href="">Cennik</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-tab="6">
           <a href="">Galeria</a>
         </li>
-        <li class="nav__item">
+        <li class="nav__item" data-tab="7">
           <a href="">kontakt</a>
         </li>
       </ul>
@@ -74,7 +74,7 @@
       </div>
     </nav>
     <main>
-      <section class="about-us">
+      <section class="about-us__section" data-tab="1">
         <div class="hero__image">
           <div></div>
           <!-- <img src="/assets/img/van3.jpg" alt=""> -->
@@ -96,25 +96,25 @@
           <div class="about-us__image--child"></div>
         </div>
       </section>
-      <div class="separator-line"></div>
-      <nav class="offer__nav-bar">
-        <ul class="offer__nav-list">
-          <li class="offer__nav-item">
-            <a href="" data-tab="1">Przeprowadzki</a>
-          </li>
-          <li class="offer__nav-item">
-            <a href="" data-tab="2">Taxi Bagażowe</a>
-          </li>
-          <li class="offer__nav-item">
-            <a href="" data-tab="3">Reorganizacja biur</a>
-          </li>
-          <li class="offer__nav-item">
-            <a href="" data-tab="4">Montaż mebli</a>
-          </li>
-        </ul>
-      </nav>
-      <div class="separator-line"></div>
-      <section class="offer__section">
+      <section class="offer__section" data-tab="2">
+        <div class="separator-line"></div>
+        <nav class="offer__nav-bar">
+          <ul class="offer__nav-list">
+            <li class="offer__nav-item">
+              <a href="" data-tab="1">Przeprowadzki</a>
+            </li>
+            <li class="offer__nav-item">
+              <a href="" data-tab="2">Taxi Bagażowe</a>
+            </li>
+            <li class="offer__nav-item">
+              <a href="" data-tab="3">Reorganizacja biur</a>
+            </li>
+            <li class="offer__nav-item">
+              <a href="" data-tab="4">Montaż mebli</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="separator-line"></div>
         <div class="offer-container hidden" data-tab="1">
           <img
             src="assets\img\przeprowadzki.jpg"
@@ -277,12 +277,12 @@
           </div>
         </div>
       </section>
-      <section>
+      <section class="opinions__section" data-tab="3">
         <h1 class="section-title">
           Wyróżniamy się jakośćią i profesjonalizmem - poznaj nasze opinie!
         </h1>
-        <div class="opinions__section">
-          <div class="opinions__container">
+        <div class="opinions__container">
+          <div class="opinions__container-child">
             <div class="opinions__box box-1" style="transform: translateX(0)">
               <img
                 src="assets/img/opinions_EN.png"
@@ -335,7 +335,7 @@
           </button>
         </div>
       </section>
-      <section>
+      <section class="testimonial__section" data-tab="4">
         <h1 class="section-title">
           Ponad 10 lat doświadczenia z różnymi firmami
         </h1>
