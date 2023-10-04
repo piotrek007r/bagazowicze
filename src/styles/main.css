@@ -537,6 +537,9 @@ html {
 .testymonials__container .testimonial__box img {
   width: 100%;
 }
+.testymonials__container .testimonial__box:hover {
+  cursor: pointer;
+}
 @media (max-width: 1110px) {
   .testymonials__container {
     padding: 20px 100px;
@@ -578,6 +581,12 @@ html {
   height: 500px;
   background-color: hsl(0, 0%, 93%);
   display: flex;
+  margin: auto;
+}
+@media (max-width: 1110px) {
+  .prices__container {
+    width: 100%;
+  }
 }
 @media (max-width: 845px) {
   .prices__container {
@@ -587,8 +596,13 @@ html {
 
 .price__table--normal {
   width: 80%;
-  height: 20%;
-  border: 2px solid black;
+  min-width: 800px;
+  height: 40%;
+  margin: auto;
+  background: linear-gradient(to left top, rgb(255, 166, 0), rgb(249, 221, 169));
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-radius: 20px;
 }
 @media (max-width: 845px) {
   .price__table--normal {
@@ -599,11 +613,12 @@ html {
 .price__table--mobile {
   display: none;
   width: 80%;
+  max-width: 508px;
   height: auto;
-  background-color: rgb(255, 166, 0);
   background: linear-gradient(to left top, rgb(255, 166, 0), rgb(249, 221, 169));
   border-spacing: 0;
   border-collapse: collapse;
+  border-radius: 20px;
 }
 @media (max-width: 845px) {
   .price__table--mobile {
@@ -611,14 +626,26 @@ html {
     margin: auto;
   }
 }
-.price__table--mobile .prices__table--cell {
+
+.prices__table--cell {
+  height: 70px;
   border: 4px solid hsl(0, 0%, 93%);
   text-align: center;
   padding: 10px;
 }
-.price__table--mobile .first-cell {
+
+.first-cell {
   background-color: hsl(0, 0%, 93%);
-  background-image: url(../../assets/img/meble.jpg);
+  background-image: url(../../assets/img/logo.png);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+@media (max-width: 845px) {
+  .first-cell {
+    background-image: url(../../assets/img/symbol.png);
+    background-size: 60%;
+  }
 }
 
 .is-active {
