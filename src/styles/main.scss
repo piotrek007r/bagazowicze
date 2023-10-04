@@ -28,6 +28,13 @@ html {
   }
 }
 
+.section-title {
+  text-align: center;
+  padding: 40px !important;
+  text-transform: uppercase;
+  // border: 2px solid black;
+}
+
 // -------------------------------------------------------------
 // ---------------> NAVIGATION
 
@@ -48,7 +55,7 @@ html {
   .logo__image {
     min-width: 250px;
     height: 100px;
-    background-image: url(../../assets/img/Logo.png);
+    background-image: url(../../assets/img/logo.png);
     background-repeat: no-repeat;
     background-position: left;
     background-size: 100%;
@@ -141,6 +148,79 @@ html {
   }
   @media (max-width: $media-mobile) {
     display: block;
+  }
+}
+
+// -------------------------------------------------------------
+// -------------- > HAMBURGER MENU
+
+.backdrop-filter {
+  display: none;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 60;
+  opacity: 0.7;
+  background-color: black;
+}
+
+.mobile-navigation-bar {
+  width: 70%;
+  height: 100vh;
+  background-color: $color-primary-main;
+  opacity: 0.95;
+  position: fixed;
+  right: -100%;
+  top: 0;
+  z-index: 70;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+
+  @media (min-width: $media-mobile) {
+    display: none;
+    transition: 2s;
+  }
+
+  .mobile-nav__list {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .nav__item {
+      font-size: 24px;
+      font-weight: 700;
+    }
+  }
+
+  .mobile-nav__btn--close {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 40px;
+    right: 25px;
+    cursor: pointer;
+
+    .mobile-nav__btn-bar,
+    .mobile-nav__btn-bar::after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 4px;
+      background-color: $hamburger-icon--color;
+    }
+
+    .mobile-nav__btn-bar {
+      transform: rotate(-45deg);
+    }
+
+    .mobile-nav__btn-bar::after {
+      transform: rotate(90deg);
+    }
   }
 }
 
@@ -345,13 +425,6 @@ html {
 // -------------------------------------------------------------
 // ---------------> OPINIONS
 
-.section-title {
-  text-align: center;
-  padding: 40px !important;
-  text-transform: uppercase;
-  // border: 2px solid black;
-}
-
 .opinions__container {
   width: 80%;
   height: 500px;
@@ -449,8 +522,9 @@ html {
 }
 
 // -------------------------------------------------------------
-// -------------- > EXPERIENCE
-.testymonials__section {
+// -------------- > TESTYMONIALS
+
+.testymonials__container {
   // width: 100%;
   height: 500px;
   background-color: $color-secondary-main;
@@ -506,77 +580,62 @@ html {
 }
 
 // -------------------------------------------------------------
-// -------------- > HAMBURGER MENU
+// -------------- > PRICES
 
-.backdrop-filter {
-  display: none;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 60;
-  opacity: 0.7;
-  background-color: black;
-}
-
-.mobile-navigation-bar {
-  width: 70%;
-  height: 100vh;
-  background-color: $color-primary-main;
-  opacity: 0.95;
-  position: fixed;
-  right: -100%;
-  top: 0;
-  z-index: 70;
+.prices__container {
+  width: 80%;
+  height: 500px;
+  background-color: $color-secondary-main;
+  // margin: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.4s;
 
-  @media (min-width: $media-mobile) {
-    display: none;
-    transition: 2s;
-  }
-
-  .mobile-nav__list {
-    display: block;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-
-    .nav__item {
-      font-size: 24px;
-      font-weight: 700;
-    }
-  }
-
-  .mobile-nav__btn--close {
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    top: 40px;
-    right: 25px;
-    cursor: pointer;
-
-    .mobile-nav__btn-bar,
-    .mobile-nav__btn-bar::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 4px;
-      background-color: $hamburger-icon--color;
-    }
-
-    .mobile-nav__btn-bar {
-      transform: rotate(-45deg);
-    }
-
-    .mobile-nav__btn-bar::after {
-      transform: rotate(90deg);
-    }
+  @media (max-width: $media-mobile) {
+    width: 100%;
+    // background-color: $color-primary-main;
   }
 }
+
+.price__table--normal {
+  width: 80%;
+  height: 20%;
+  border: 2px solid black;
+
+  @media (max-width: $media-mobile) {
+    display: none;
+  }
+}
+
+.price__table--mobile {
+  display: none;
+  width: 80%;
+  height: auto;
+  background-color: $color-priomary-effects;
+  background: linear-gradient(
+    to left top,
+    $color-priomary-effects,
+    rgb(249, 221, 169)
+  );
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  @media (max-width: $media-mobile) {
+    display: block;
+    margin: auto;
+  }
+  .prices__table--cell {
+    border: 4px solid $color-secondary-main;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .first-cell {
+    background-color: $color-secondary-main;
+    background-image: url(../../assets/img/meble.jpg);
+  }
+}
+
+// -------------------------------------------------------------
+// -------------- > GLOBAL
 
 .is-active {
   right: 0;

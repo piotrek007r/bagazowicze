@@ -24,7 +24,6 @@ function removeBackdrop() {
 
 const navBar = document.querySelector(".navigation-bar");
 const sections = document.querySelectorAll("section");
-const topgGap = navBar.getBoundingClientRect().height;
 const hamburgerIcon = document.querySelector(".hamburger-menu__icon");
 const mobileSideBar = document.querySelector(".mobile-navigation-bar");
 
@@ -36,7 +35,10 @@ function scrollToPosition(e) {
       const coords = section.getBoundingClientRect();
       window.scrollTo({
         left: coords.left + window.pageXOffset,
-        top: coords.top + window.pageYOffset - topgGap,
+        top:
+          coords.top +
+          window.pageYOffset -
+          navBar.getBoundingClientRect().height,
         behavior: "smooth",
       });
     }
@@ -165,7 +167,9 @@ opinionsContainer.addEventListener("touchend", function (e) {
 //-----------------------------------------------------------
 // Testimonials
 
-const testymonialsContainer = document.querySelector(".testymonials__section");
+const testymonialsContainer = document.querySelector(
+  ".testymonials__container"
+);
 const testymonialBox = document.querySelectorAll(".testimonial__box");
 
 document.addEventListener("click", function (e) {
