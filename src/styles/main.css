@@ -188,10 +188,10 @@ html {
   display: block;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 .mobile-navigation-bar .mobile-nav__list .nav__item {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 }
 .mobile-navigation-bar .mobile-nav__btn--close {
@@ -239,7 +239,7 @@ html {
 .hero__image .text-container .about-us__text--bold {
   font-size: 34px;
   font-weight: 700;
-  white-space: nowrap;
+  text-align: center;
   margin-bottom: 20px;
 }
 @media (max-width: 1110px) {
@@ -284,7 +284,7 @@ html {
 @media (max-width: 845px) {
   .hero__image {
     height: 350px !important;
-    margin-bottom: 350px;
+    margin-bottom: 375px;
     margin-top: 0;
     height: 400px;
   }

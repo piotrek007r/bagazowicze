@@ -190,10 +190,10 @@ html {
     display: block;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 
     .nav__item {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
     }
   }
@@ -250,7 +250,8 @@ html {
     .about-us__text--bold {
       font-size: 34px;
       font-weight: 700;
-      white-space: nowrap;
+      // white-space: nowrap;
+      text-align: center;
       margin-bottom: 20px;
 
       @media (max-width: $media-tablet) {
@@ -290,7 +291,7 @@ html {
 
   @media (max-width: $media-mobile) {
     height: 350px !important;
-    margin-bottom: 350px;
+    margin-bottom: 375px;
     margin-top: 0;
     height: 400px;
   }
