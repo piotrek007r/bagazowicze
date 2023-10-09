@@ -290,7 +290,7 @@ html {
 
   @media (max-width: $media-mobile) {
     height: 350px !important;
-    margin-bottom: 320px;
+    margin-bottom: 350px;
     margin-top: 0;
     height: 400px;
   }
@@ -699,7 +699,7 @@ html {
     width: 500px;
 
     p {
-      margin: 16px;
+      margin-bottom: 16px;
     }
 
     p:first-child {
@@ -708,6 +708,10 @@ html {
 
     @media (max-width: $media-tablet) {
       width: 400px;
+    }
+
+    @media (max-width: $media-tablet) {
+      width: 90%;
     }
   }
 
@@ -728,6 +732,10 @@ html {
     @media (max-width: $media-tablet) {
       width: 353px;
       height: 353px;
+    }
+
+    @media (max-width: $media-tablet) {
+      scale: 0.7;
     }
   }
 
@@ -805,6 +813,7 @@ html {
     height: 1100px;
     flex-direction: column;
     justify-content: flex-start;
+    gap: 0px;
   }
 }
 
