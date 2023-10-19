@@ -3,6 +3,9 @@
 @import "root.scss";
 @import "fonts.scss";
 
+// -------------------------------------------------------------
+// -------------- > GLOBAL
+
 * {
   margin: 0;
   padding: 0;
@@ -10,11 +13,6 @@
 }
 html {
   font-family: "Lato", sans-serif;
-  // overflow-x: hidden;
-
-  @media (max-width: $media-mobile) {
-    // overflow-x: visible;
-  }
 }
 
 * {
@@ -34,6 +32,14 @@ html {
   padding: 40px !important;
   text-transform: uppercase;
   // border: 2px solid black;
+}
+
+.is-active {
+  right: 0;
+}
+
+.hidden {
+  display: none;
 }
 
 // -------------------------------------------------------------
@@ -711,7 +717,7 @@ html {
       width: 400px;
     }
 
-    @media (max-width: $media-tablet) {
+    @media (max-width: $media-mobile) {
       width: 90%;
     }
   }
@@ -727,7 +733,7 @@ html {
     );
     border: 3px solid $color-priomary-effects;
     position: relative;
-    animation: rotating 20s infinite linear;
+    animation: rotating 60s infinite linear;
     transition: 0.5s all;
 
     @media (max-width: $media-tablet) {
@@ -735,7 +741,7 @@ html {
       height: 353px;
     }
 
-    @media (max-width: $media-tablet) {
+    @media (max-width: $media-mobile) {
       scale: 0.7;
     }
   }
@@ -794,6 +800,7 @@ html {
     filter: grayscale(0%);
     z-index: 10;
     border: 4px solid $color-priomary-effects;
+    cursor: pointer;
   }
 
   .gallery__container--centering-container:hover {
@@ -803,7 +810,9 @@ html {
       $color-priomary-effects 75%,
       rgb(252, 238, 214)
     );
-    cursor: pointer;
+    @media (max-width: $media-mobile) {
+      scale: 0.8;
+    }
   }
 
   @media (max-width: $media-tablet) {
@@ -816,17 +825,6 @@ html {
     justify-content: flex-start;
     gap: 0px;
   }
-}
-
-// -------------------------------------------------------------
-// -------------- > GLOBAL
-
-.is-active {
-  right: 0;
-}
-
-.hidden {
-  display: none;
 }
 
 // Separator line

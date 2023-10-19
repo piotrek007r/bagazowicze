@@ -58,13 +58,11 @@ mobileSideBar.addEventListener("click", function (e) {
 
 document.addEventListener("click", function (e) {
   e.preventDefault(e);
-
   // Display hamburger menu
   if (e.target.closest(".hamburger-menu__icon")) {
     mobileSideBar.classList.toggle("is-active");
     backdropFilter.style.display = "block";
   }
-
   // Hide hamburger menu
   if (
     e.target.closest(".backdrop-filter") ||
@@ -74,10 +72,9 @@ document.addEventListener("click", function (e) {
 });
 
 //-----------------------------------------------------------
-// Offer navigation bar actions
+// OFFER NAVIGATION BAR
 
 const offerContainers = document.querySelectorAll(".offer-container");
-// const offerNavBar = document.querySelector(".offer__nav-bar");
 
 // Display on page load
 offerContainers.forEach((container, index) => {
@@ -99,7 +96,7 @@ document.addEventListener("click", function (e) {
 });
 
 //-----------------------------------------------------------
-// Slider
+// SLIDER
 
 const opinionsSection = document.querySelector(".opinions__container");
 const opinionBox = document.querySelectorAll(".opinions__box");
@@ -192,6 +189,19 @@ document.addEventListener("click", function (e) {
     // Set a backdrop filter
     backdropFilter.style.display = "block";
   }
+});
+
+//-----------------------------------------------------------
+// Gallery
+
+const image = document.querySelectorAll(".gallery__image");
+
+console.log(image);
+
+image.forEach((el) => {
+  el.addEventListener("click", function (e) {
+    window.location.href = "Gallery/index.html";
+  });
 });
 
 // document.addEventListener("click", function (e) {
