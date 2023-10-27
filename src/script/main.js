@@ -19,6 +19,10 @@ function removeBackdrop() {
   newDiv.remove();
 }
 
+backdropFilter.addEventListener("click", function () {
+  removeBackdrop();
+});
+
 //-----------------------------------------------------------
 // Navigation bar actions
 
@@ -53,7 +57,6 @@ navBar.addEventListener("click", function (e) {
 
 mobileSideBar.addEventListener("click", function (e) {
   e.preventDefault(e);
-
   scrollToPosition(e);
   removeBackdrop();
 });
@@ -66,11 +69,7 @@ navBar.addEventListener("click", function (e) {
     backdropFilter.style.display = "block";
   }
   // Hide hamburger menu
-  if (
-    e.target.closest(".backdrop-filter") ||
-    e.target.closest(".mobile-nav__btn--close")
-  )
-    removeBackdrop();
+  if (e.target.closest(".mobile-nav__btn--close")) removeBackdrop();
 });
 
 //-----------------------------------------------------------
