@@ -27,6 +27,10 @@ html {
   text-transform: uppercase;
 }
 
+.hidden {
+  display: none;
+}
+
 .navigation-bar {
   width: 100%;
   height: auto;
@@ -700,6 +704,7 @@ html {
   background: radial-gradient(closest-side, rgb(255, 166, 0) 70%, rgb(252, 238, 214));
   border: 3px solid rgb(255, 166, 0);
   position: relative;
+  animation: rotating 120s infinite linear;
   transition: 0.5s all;
 }
 @media (max-width: 1110px) {
@@ -784,12 +789,63 @@ html {
   }
 }
 
-.is-active {
-  right: 0;
+.contact__container {
+  width: 80%;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 }
-
-.hidden {
-  display: none;
+.contact__container .contact__text-container {
+  margin-bottom: 16px;
+}
+.contact__container .contact__text-container .contact__text {
+  margin-bottom: 16px;
+}
+.contact__container .contact__text-container .contact__text:first-child {
+  text-indent: 30px;
+}
+.contact__container .contact__form {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  gap: 15px;
+  font-size: 24px;
+}
+.contact__container .contact__form .contact__input {
+  width: 100%;
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0.546);
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.contact__container .contact__form ::placeholder {
+  font-size: 14px;
+  font-family: "Lato", sans-serif;
+}
+.contact__container .contact__form .contact__submit {
+  width: 100px;
+  height: 32px;
+  text-transform: uppercase;
+  align-self: center;
+  border: 1px solid rgb(255, 166, 0);
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 2;
+  background-color: rgb(255, 166, 0);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: white;
+  transition: all 0.2s;
+}
+.contact__container .contact__form .contact__submit:hover {
+  background-color: rgb(250, 185, 64);
+  cursor: pointer;
 }
 
 .separator-line {
@@ -805,6 +861,14 @@ html {
   top: 50%;
   left: 50%;
   background-color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.is-active {
+  right: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

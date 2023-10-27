@@ -52,11 +52,13 @@ navBar.addEventListener("click", function (e) {
 // Hamburger menu
 
 mobileSideBar.addEventListener("click", function (e) {
+  e.preventDefault(e);
+
   scrollToPosition(e);
   removeBackdrop();
 });
 
-document.addEventListener("click", function (e) {
+navBar.addEventListener("click", function (e) {
   e.preventDefault(e);
   // Display hamburger menu
   if (e.target.closest(".hamburger-menu__icon")) {
@@ -75,6 +77,7 @@ document.addEventListener("click", function (e) {
 // OFFER NAVIGATION BAR
 
 const offerContainers = document.querySelectorAll(".offer-container");
+const offerNavBar = document.querySelector(".offer__nav-bar");
 
 // Display on page load
 offerContainers.forEach((container, index) => {
@@ -82,7 +85,7 @@ offerContainers.forEach((container, index) => {
 });
 
 // Handling tab-offer buttons
-document.addEventListener("click", function (e) {
+offerNavBar.addEventListener("click", function (e) {
   e.preventDefault();
   const dataTab = e.target.getAttribute("data-tab");
   if (!dataTab) return;
@@ -109,15 +112,12 @@ function goToSlide() {
 }
 
 function slideRight() {
-  console.log("right");
   if (position < -1) position = 1;
   position--;
   goToSlide();
 }
 
 function slideLeft() {
-  console.log("left");
-
   if (position > -1) {
     position = -3;
   }
@@ -126,7 +126,6 @@ function slideLeft() {
 }
 
 opinionsSection.addEventListener("click", function (e) {
-  // e.preventDefault(e);
   const btnCliked = e.target.closest(".opinions__btn");
   if (!btnCliked) return;
 
@@ -196,11 +195,27 @@ document.addEventListener("click", function (e) {
 
 const image = document.querySelectorAll(".gallery__image");
 
-console.log(image);
-
 image.forEach((el) => {
   el.addEventListener("click", function (e) {
     window.location.href = "Gallery/index.html";
+  });
+});
+
+//-----------------------------------------------------------
+// Gallery
+
+// Clearing and setting placeholder
+const inputField = document.querySelectorAll(".contact__input");
+let deletedPlaceholder = "";
+
+inputField.forEach((field) => {
+  field.addEventListener("focus", (e) => {
+    const curElement = e.target;
+    deletedPlaceholder = curElement.getAttribute("placeholder");
+    curElement.removeAttribute("placeholder");
+  });
+  field.addEventListener("blur", (e) => {
+    e.target.setAttribute("placeholder", deletedPlaceholder);
   });
 });
 

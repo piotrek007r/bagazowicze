@@ -445,7 +445,24 @@
           </div>
         </div>
       </section>
-      
+      <section class="contact__section" data-tab="7">
+        <h1 class="section-title">Przeprowadzamy domy,
+          firmy... i rozmowy</h1>
+        <div class="contact__container">
+          <div class="contact__text-container">
+            <p class="contact__text">Od pierwszego kontaktu do szybkiej realizacji ? porozmawiajmy o Twoim zamówieniu i ustalmy szczegóły, na których Ci zależy. Niezależnie od tego, o jakie przedsięwzięcie chodzi, postaramy się zaoferować Ci przystępną cenowo i sprawnie przeprowadzoną obsługę. Wystarczy, że opiszesz nam, czego potrzebujesz.
+            </p>
+              <p class="contact__text">Udaną przeprowadzkę bądź inne transportowe zlecenie możesz rozpocząć jednym mailem bądź telefonem:</p>
+          </div>
+            <form class="contact__form" onSubmit="submit" method="POST" data-netlify="true">
+              <input class="contact__input" type="text" name="name" placeholder="Imię i Nazwisko*">
+              <input class="contact__input" type="email" name="mail" placeholder="Email kontaktowy*">
+              <input class="contact__input" type="text" name="phone" placeholder="Telefon kontaktowy*">
+              <textarea class="contact__input" name="text" cols="30" rows="5" placeholder="Treść wiadomości*"></textarea>
+              <button class="contact__submit"type="submit" name="submit">Wyślij</button>
+            </form>
+          </div>
+      </section>
     </main>
     <script src="src/script/main.js"></script>
   </body>

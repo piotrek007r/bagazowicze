@@ -28,14 +28,14 @@ image.forEach((image) => {
 
 //-------------------------
 // displaying big picture
-galleryContainer.addEventListener("click", (e) => {
+
+function bigPicture(e) {
   const clickedContainer = e.target.closest(".main-gallery__image-container");
   if (!clickedContainer) return;
   const clickedConstainerTab = clickedContainer.getAttribute("data-tab");
 
   function createBigPicture(image) {
     const imageSrc = image.getAttribute("src");
-    console.log(imageSrc);
     //creating container for image
     newImageContainer = document.createElement("div");
     newImageContainer.classList.add("new-picture__container");
@@ -59,6 +59,7 @@ galleryContainer.addEventListener("click", (e) => {
     const imageTab = image
       .closest(".main-gallery__image-container")
       .getAttribute("data-tab");
+    if (image.getAttribute("src") === "/assets/img/empty.jpg") return;
 
     if (clickedConstainerTab === imageTab) {
       createBigPicture(image);
@@ -66,7 +67,22 @@ galleryContainer.addEventListener("click", (e) => {
       backdropFilter.style.display = "block";
     }
   });
-});
+}
+
+// Media match for controlling bigPicture on moblie
+function handleMediaQuerryChange(mq) {
+  if (mq.matches) {
+    console.log("remove");
+    galleryContainer.removeEventListener("click", bigPicture);
+  } else {
+    galleryContainer.addEventListener("click", bigPicture);
+  }
+}
+
+const mediaQerry = window.matchMedia("(max-width: 600px");
+handleMediaQuerryChange(mediaQerry);
+
+mediaQerry.addListener(handleMediaQuerryChange);
 
 //-------------------------
 // CLOSING BIG PICTURE
@@ -79,10 +95,3 @@ document.addEventListener("click", (e) => {
     newImageContainer.remove();
   }
 });
-
-// document.addEventListener("click", (e) => {
-//   console.log(e.target);
-// });
-
-const mediaQerry = window.matchMedia("(max-width: 600px)");
-console.log(mediaQerry);

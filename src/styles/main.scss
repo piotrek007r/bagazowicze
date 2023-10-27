@@ -34,9 +34,7 @@ html {
   // border: 2px solid black;
 }
 
-.is-active {
-  right: 0;
-}
+
 
 .hidden {
   display: none;
@@ -733,7 +731,7 @@ html {
     );
     border: 3px solid $color-priomary-effects;
     position: relative;
-    animation: rotating 60s infinite linear;
+    animation: rotating 120s infinite linear;
     transition: 0.5s all;
 
     @media (max-width: $media-tablet) {
@@ -827,6 +825,73 @@ html {
   }
 }
 
+// -------------------------------------------------------------
+// -------------- > CONTACT
+
+.contact__container {
+  width: 80%;
+  height: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  .contact__text-container {
+    margin-bottom: 16px;
+    .contact__text {
+      margin-bottom: 16px;
+    }
+    .contact__text:first-child {
+      text-indent: 30px;
+    }
+  }
+
+  .contact__form {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    gap: 15px;
+    font-size: 24px;
+
+    .contact__input {
+      width: 100%;
+      outline: none;
+      border: 2px solid rgba(0, 0, 0, 0.546);
+      border-radius: 5px;
+      padding: 10px;
+      box-sizing: border-box;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    ::placeholder {
+      font-size: 14px;
+      font-family: "Lato", sans-serif;
+    }
+    .contact__submit {
+      width: 100px;
+      height: 32px;
+      text-transform: uppercase;
+      align-self: center;
+      border: 1px solid $color-priomary-effects;
+      border-radius: 5px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      line-height: 2;
+      background-color: $color-priomary-effects;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: white;
+      transition: all 0.2s;
+    }
+
+    .contact__submit:hover {
+      background-color: rgb(250, 185, 64);
+      cursor: pointer;
+    }
+  }
+}
+
 // Separator line
 
 .separator-line {
@@ -842,4 +907,12 @@ html {
   top: 50%;
   left: 50%;
   background-color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.is-active {
+  right: 0;
 }
