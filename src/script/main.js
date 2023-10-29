@@ -1,9 +1,6 @@
 "use strict";
 
 //-----------------------------------------------------------
-// Loading page
-
-//-----------------------------------------------------------
 // Global variables
 
 const backdropFilter = document.querySelector(".backdrop-filter");
@@ -160,7 +157,7 @@ opinionsContainer.addEventListener("touchend", function (e) {
 });
 
 //-----------------------------------------------------------
-// Testimonials
+// TESTYMONIALS SECTION
 
 const testymonialsContainer = document.querySelector(
   ".testymonials__container"
@@ -190,7 +187,7 @@ document.addEventListener("click", function (e) {
 });
 
 //-----------------------------------------------------------
-// Gallery
+// GALLERY SECTION
 
 const image = document.querySelectorAll(".gallery__image");
 
@@ -201,21 +198,46 @@ image.forEach((el) => {
 });
 
 //-----------------------------------------------------------
-// Gallery
+// CONTACT SECTION
 
-// Clearing and setting placeholder
+const submitButton = document.querySelector(".contact__submit");
 const inputField = document.querySelectorAll(".contact__input");
+const contactForm = document.querySelector(".contact__form");
+// const inputName = document.querySelector(".input-name");
+// const inputPhone = document.querySelector(".input-phone");
+// const inputMail = document.querySelector(".input-mail");
+// const inputMessage = document.querySelector(".input-message");
+let misstypedInputs = [];
 let deletedPlaceholder = "";
 
-inputField.forEach((field) => {
-  field.addEventListener("focus", (e) => {
+// Clearing and setting placeholder
+inputField.forEach((input) => {
+  input.addEventListener("focus", (e) => {
     const curElement = e.target;
     deletedPlaceholder = curElement.getAttribute("placeholder");
     curElement.removeAttribute("placeholder");
+    // checking for red background
+    if (input.style.backgroundColor === "rgb(254, 186, 186)")
+      input.style.backgroundColor = "initial";
   });
-  field.addEventListener("blur", (e) => {
+  input.addEventListener("blur", (e) => {
     e.target.setAttribute("placeholder", deletedPlaceholder);
   });
+});
+
+contactForm.addEventListener("submit", function (e) {
+  misstypedInputs = Array.from(inputField).filter((input) => {
+    return input.value === "";
+  });
+
+  misstypedInputs.forEach(
+    (input) => (input.style.backgroundColor = "rgb(254, 186, 186)")
+  );
+
+  // Change this and remove e.preventDefault(); above when site gonna would be connected
+  if (misstypedInputs[0]) {
+    e.preventDefault();
+  }
 });
 
 // document.addEventListener("click", function (e) {
