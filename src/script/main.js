@@ -193,7 +193,9 @@ const image = document.querySelectorAll(".gallery__image");
 
 image.forEach((el) => {
   el.addEventListener("click", function (e) {
-    window.location.href = "Gallery/index.html";
+    // window.location.href = "Gallery/index.html";
+    window.location.href = "index.html#contact";
+    console.log("click");
   });
 });
 
@@ -226,26 +228,6 @@ inputField.forEach((input) => {
 });
 
 contactForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  console.log(e.target);
-  console.log(this);
-
-  const formData = new FormData(this);
-
-  fetch("https://formsubmit.io/send/kontakt@bagazowicze.pl", {
-    method: "POST",
-    body: formData,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      // Handle the response (e.g., show success message)
-      console.log(data);
-    })
-    .catch((error) => {
-      // Handle errors (e.g., show error message)
-      console.error("Error:", error);
-    });
-
   misstypedInputs = Array.from(inputField).filter((input) => {
     return input.value === "";
   });
@@ -255,8 +237,9 @@ contactForm.addEventListener("submit", function (e) {
   );
 
   // Change this and remove e.preventDefault(); above when site gonna would be connected
-  // if (misstypedInputs[0]) {
-  // }
+  if (misstypedInputs[0]) {
+    e.preventDefault();
+  }
 });
 
 // document.addEventListener("click", function (e) {
