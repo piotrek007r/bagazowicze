@@ -226,6 +226,26 @@ inputField.forEach((input) => {
 });
 
 contactForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  console.log(e.target);
+  console.log(this);
+
+  const formData = new FormData(this);
+
+  fetch("https://formsubmit.io/send/kontakt@bagazowicze.pl", {
+    method: "POST",
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response (e.g., show success message)
+      console.log(data);
+    })
+    .catch((error) => {
+      // Handle errors (e.g., show error message)
+      console.error("Error:", error);
+    });
+
   misstypedInputs = Array.from(inputField).filter((input) => {
     return input.value === "";
   });
@@ -235,9 +255,8 @@ contactForm.addEventListener("submit", function (e) {
   );
 
   // Change this and remove e.preventDefault(); above when site gonna would be connected
-  if (misstypedInputs[0]) {
-    e.preventDefault();
-  }
+  // if (misstypedInputs[0]) {
+  // }
 });
 
 // document.addEventListener("click", function (e) {
@@ -255,14 +274,14 @@ contactForm.addEventListener("submit", function (e) {
 //   }
 // });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const urlParams = new URLSearchParams(window.location.search);
-  const success = urlParams.get("success");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const success = urlParams.get("success");
 
-  console.log(urlParams);
+//   console.log(urlParams);
 
-  if (success === "true") {
-    // Display success modal or message
-    openSuccessModal(); // Define this function to display your success message or modal
-  }
-});
+//   if (success === "true") {
+//     // Display success modal or message
+//     openSuccessModal(); // Define this function to display your success message or modal
+//   }
+// });
