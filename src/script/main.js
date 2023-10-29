@@ -254,3 +254,15 @@ contactForm.addEventListener("submit", function (e) {
 //     testymonialBox.forEach((el) => el.classList.remove("big-picture"));
 //   }
 // });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const success = urlParams.get("success");
+
+  console.log(urlParams);
+
+  if (success === "true") {
+    // Display success modal or message
+    openSuccessModal(); // Define this function to display your success message or modal
+  }
+});
