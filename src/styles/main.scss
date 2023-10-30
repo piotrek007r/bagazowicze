@@ -899,7 +899,8 @@ html {
     }
   }
 
-  .contact__modal--sending {
+  .contact__modal--sending,
+  .contact__modal--succes {
     width: 160px;
     height: 80px;
     position: absolute;
@@ -914,7 +915,6 @@ html {
 
     p {
       font-size: 18px;
-      // text-transform: uppercase;
       text-align: center;
     }
   }

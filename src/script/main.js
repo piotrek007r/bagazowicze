@@ -206,6 +206,7 @@ const submitButton = document.querySelector(".contact__submit");
 const inputField = document.querySelectorAll(".contact__input");
 const contactForm = document.querySelector(".contact__form");
 const modalSending = document.querySelector(".contact__modal--sending");
+const modalSendSucces = document.querySelector(".contact__modal--succes");
 // const inputName = document.querySelector(".input-name");
 // const inputPhone = document.querySelector(".input-phone");
 // const inputMail = document.querySelector(".input-mail");
@@ -248,13 +249,12 @@ contactForm.addEventListener("submit", function (e) {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const desiredPath = "https://bagazowicze.netlify.app/index.html#section2";
-  console.log(window.location.href);
-  console.log(desiredPath);
   if (
     window.location.href ===
     "https://bagazowicze.netlify.app/index.html#section2"
   ) {
+    console.log("matched");
+    modalSendSucces.classList.remove("hidden");
   }
 });
 

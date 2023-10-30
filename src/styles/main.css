@@ -856,7 +856,8 @@ html {
   background-color: rgb(250, 185, 64);
   cursor: pointer;
 }
-.contact__container .contact__modal--sending {
+.contact__container .contact__modal--sending,
+.contact__container .contact__modal--succes {
   width: 160px;
   height: 80px;
   position: absolute;
@@ -869,7 +870,8 @@ html {
   justify-content: center;
   align-items: center;
 }
-.contact__container .contact__modal--sending p {
+.contact__container .contact__modal--sending p,
+.contact__container .contact__modal--succes p {
   font-size: 18px;
   text-align: center;
 }
