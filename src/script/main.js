@@ -255,6 +255,10 @@ document.addEventListener("DOMContentLoaded", function () {
   ) {
     console.log("matched");
     modalSendSucces.classList.remove("hidden");
+    setTimeout(() => {
+      console.log("hide");
+      modalSendSucces.classList.add("hidden");
+    }, 2000);
   }
 });
 
