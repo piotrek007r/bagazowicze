@@ -456,7 +456,7 @@
               <p class="contact__text">Udaną przeprowadzkę bądź inne transportowe zlecenie możesz rozpocząć jednym mailem bądź telefonem:</p>
           </div>
             <form class="contact__form"  action="https://formsubmit.io/send/kontakt@bagazowicze.pl" method="POST" >
-              <input name="_redirect" type="hidden" id="name" value="https://bagazowicze.netlify.app/">
+              <input name="_redirect" type="hidden" id="name" value="https://bagazowicze.netlify.app/index.html#section2">
               <input class="contact__input input-name" type="text" name="name" placeholder="Imię i Nazwisko*">
               <input class="contact__input input-mail" type="email" name="mail" placeholder="Email kontaktowy*">
               <input class="contact__input input-phone" type="text" name="phone" placeholder="Telefon kontaktowy*">
@@ -465,7 +465,7 @@
               <button class="contact__submit"type="submit" name="submit">Wyślij</button>
             </form>
             <!-- <div class="contact__modal--succes"><p>Wiadomość wysłano</p></div> -->
-            <!-- <div class="contact__modal--fail"><p>Sprawdź poprawność danych</p></div> -->
+            <div class="contact__modal--sending hidden"><p>Wysyłanie <br/> wiadomości.</p></div>
           </div>
       </section>
     </main>

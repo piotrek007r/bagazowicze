@@ -205,6 +205,7 @@ image.forEach((el) => {
 const submitButton = document.querySelector(".contact__submit");
 const inputField = document.querySelectorAll(".contact__input");
 const contactForm = document.querySelector(".contact__form");
+const modalSending = document.querySelector(".contact__modal--sending");
 // const inputName = document.querySelector(".input-name");
 // const inputPhone = document.querySelector(".input-phone");
 // const inputMail = document.querySelector(".input-mail");
@@ -227,11 +228,13 @@ inputField.forEach((input) => {
   });
 });
 
+// submitting a form
 contactForm.addEventListener("submit", function (e) {
+  // collecting all inffiled inputs
   misstypedInputs = Array.from(inputField).filter((input) => {
     return input.value === "";
   });
-
+  // checking inffiled inputs
   misstypedInputs.forEach(
     (input) => (input.style.backgroundColor = "rgb(254, 186, 186)")
   );
@@ -239,6 +242,19 @@ contactForm.addEventListener("submit", function (e) {
   // Change this and remove e.preventDefault(); above when site gonna would be connected
   if (misstypedInputs[0]) {
     e.preventDefault();
+  }
+  modalSending.classList.remove("hidden");
+  console.log("load");
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const desiredPath = "https://bagazowicze.netlify.app/index.html#section2";
+  console.log(window.location.href);
+  console.log(desiredPath);
+  if (
+    window.location.href ===
+    "https://bagazowicze.netlify.app/index.html#section2"
+  ) {
   }
 });
 

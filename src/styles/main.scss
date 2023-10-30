@@ -832,6 +832,7 @@ html {
   margin: auto;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   .contact__text-container {
     margin-bottom: 16px;
@@ -897,6 +898,26 @@ html {
       cursor: pointer;
     }
   }
+
+  .contact__modal--sending {
+    width: 160px;
+    height: 80px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-primary-main;
+    border: 2px solid $color-priomary-effects;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-size: 18px;
+      // text-transform: uppercase;
+      text-align: center;
+    }
+  }
 }
 
 // -------------------------------------------------------------
@@ -927,7 +948,7 @@ html {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .is-active {
