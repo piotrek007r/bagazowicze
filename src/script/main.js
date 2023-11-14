@@ -21,7 +21,7 @@ backdropFilter.addEventListener("click", function () {
 });
 
 //-----------------------------------------------------------
-// Navigation bar actions
+// NAVIGATION SECTION
 
 const navBar = document.querySelector(".navigation-bar");
 const sections = document.querySelectorAll("section");
@@ -70,7 +70,7 @@ navBar.addEventListener("click", function (e) {
 });
 
 //-----------------------------------------------------------
-// OFFER NAVIGATION BAR
+// OFFER SECTION
 
 const offerContainers = document.querySelectorAll(".offer-container");
 const offerNavBar = document.querySelector(".offer__nav-bar");
@@ -95,7 +95,7 @@ offerNavBar.addEventListener("click", function (e) {
 });
 
 //-----------------------------------------------------------
-// SLIDER
+// OPINIONS SECTION
 
 const opinionsSection = document.querySelector(".opinions__container");
 const opinionBox = document.querySelectorAll(".opinions__box");
@@ -170,6 +170,7 @@ document.addEventListener("click", function (e) {
   if (!clickedBox) return;
   if (clickedBox.classList.contains("big-picture")) return;
   if (clickedBox) {
+    console.log("clicked");
     // Creating div containing img
     newDiv = document.createElement("div");
     testymonialsContainer.appendChild(newDiv);
@@ -193,9 +194,7 @@ const image = document.querySelectorAll(".gallery__image");
 
 image.forEach((el) => {
   el.addEventListener("click", function (e) {
-    // window.location.href = "Gallery/index.html";
-    window.location.href = "index.html#contact";
-    console.log("click");
+    window.location.href = "Gallery/index.html";
   });
 });
 
@@ -207,10 +206,7 @@ const inputField = document.querySelectorAll(".contact__input");
 const contactForm = document.querySelector(".contact__form");
 const modalSending = document.querySelector(".contact__modal--sending");
 const modalSendSucces = document.querySelector(".contact__modal--succes");
-// const inputName = document.querySelector(".input-name");
-// const inputPhone = document.querySelector(".input-phone");
-// const inputMail = document.querySelector(".input-mail");
-// const inputMessage = document.querySelector(".input-message");
+
 let misstypedInputs = [];
 let deletedPlaceholder = "";
 
@@ -240,12 +236,11 @@ contactForm.addEventListener("submit", function (e) {
     (input) => (input.style.backgroundColor = "rgb(254, 186, 186)")
   );
 
-  // Change this and remove e.preventDefault(); above when site gonna would be connected
   if (misstypedInputs[0]) {
     e.preventDefault();
+  } else {
+    modalSending.classList.remove("hidden");
   }
-  modalSending.classList.remove("hidden");
-  console.log("load");
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -261,30 +256,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 2000);
   }
 });
-
-// document.addEventListener("click", function (e) {
-//   const clickeBox = e.target.closest(".testimonial__box");
-//   testymonialBox.forEach((el) => {
-//     if (!clickeBox) return;
-//     if (el.dataset.tab === clickeBox.dataset.tab) {
-//       el.classList.add("big-picture");
-//       backdropFilter.style.display = "block";
-//     }
-//   });
-//   if (e.target.closest(".backdrop-filter")) {
-//     backdropFilter.style.display = "none";
-//     testymonialBox.forEach((el) => el.classList.remove("big-picture"));
-//   }
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const success = urlParams.get("success");
-
-//   console.log(urlParams);
-
-//   if (success === "true") {
-//     // Display success modal or message
-//     openSuccessModal(); // Define this function to display your success message or modal
-//   }
-// });
